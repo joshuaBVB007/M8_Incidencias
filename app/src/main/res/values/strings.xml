@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Clase_M8</string>
+    <string name="user_name">Introduce el nombre de usuario</string>
+    <string name="contraseña">Introduce la contraseña</string>
+    <string name="registrar">Registrar</string>
+    <string name="anadir_incidencia">Añadir Incidencia</string>
+    <string name="listar_incidencia">Listar Incidencia</string>
+    <string name="eliminar_incidencia">Eliminar Incidencia</string>
+    <string name="contenido_incidencia">ingresa la incidencia</string>
+    <string name="ayuda">Ayuda</string>
+
+
+</resources>
