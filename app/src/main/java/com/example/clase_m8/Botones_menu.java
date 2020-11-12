@@ -50,7 +50,7 @@ public class Botones_menu extends Fragment {
         B2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getContext(), "Listar Incidencia", Toast.LENGTH_SHORT).show();
             }
         });
 
