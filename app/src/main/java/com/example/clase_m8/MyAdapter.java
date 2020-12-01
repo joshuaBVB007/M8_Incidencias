@@ -32,6 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.t1.setText(lista.get(position).contenido);
+        holder.t2.setText(lista.get(position).nivel_peligro);
     }
 
     @Override
@@ -41,9 +42,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView t1;
+        TextView t2;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
            t1=itemView.findViewById(R.id.tv1);
+           t2=itemView.findViewById(R.id.tv2);
         }
     }
 

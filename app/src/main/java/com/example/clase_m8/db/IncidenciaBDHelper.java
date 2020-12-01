@@ -16,10 +16,18 @@ import com.example.clase_m8.db.IncidenciaContract.*;
 import java.util.ArrayList;
 
 public class IncidenciaBDHelper extends SQLiteOpenHelper {
+    //Esta es la tuya marta
+    /*private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaEntry.TABLE_NAME +
+            "(" + IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            IncidenciaEntry.TABLE_NAME_TITLE + " TEXT)";
+    */
+
+    //LINEA DE ABAJO ES LA MIA:le he añadido IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT
 
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaEntry.TABLE_NAME +
             "(" + IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            IncidenciaEntry.TABLE_NAME_TITLE + " TEXT)";
+            IncidenciaEntry.TABLE_NAME_TITLE+"TEXT,"+IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT)";
+
 
     public IncidenciaBDHelper(@Nullable Context context) {
         super(context, "Incidencias.db", null, 1);
@@ -37,10 +45,12 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
 
     public void insertIncidencia(SQLiteDatabase db, Incidencia miincidencia) {
         if(db.isOpen()){
-            ContentValues values=new ContentValues();
-            values.put(IncidenciaEntry.TABLE_NAME_TITLE,miincidencia.getContenido());
+            ContentValues contenido=new ContentValues();
+            contenido.put(IncidenciaEntry.TABLE_NAME_TITLE,miincidencia.getContenido());
+            //Linea de abajo añadida
+            contenido.put(IncidenciaEntry.TABLE_NAME_PRIORITY,miincidencia.getNivel_peligro());
             try {
-                db.insert(IncidenciaEntry.TABLE_NAME,null,values);
+                db.insert(IncidenciaEntry.TABLE_NAME,null,contenido);
             }catch (SQLException e){
                 Log.i("prova","insert ko");
             }
@@ -56,7 +66,8 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         //Iteration on the cursor results and fill the array
         while (cursor.moveToNext()) {
             String inc = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_TITLE));
-            Incidencia incidencia = new Incidencia(inc, "alta");
+            String inc2 = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_PRIORITY));
+            Incidencia incidencia = new Incidencia(inc,inc2);
             listIncidencies.add(incidencia);
         }
         cursor.close();
