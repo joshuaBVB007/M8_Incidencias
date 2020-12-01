@@ -20,18 +20,12 @@ import static com.example.clase_m8.db.IncidenciaConstantesTabla.IncidenciaEntry.
 import static com.example.clase_m8.db.IncidenciaConstantesTabla.IncidenciaEntry.DATABASE_VERSION;
 
 public class IncidenciaBDHelper extends SQLiteOpenHelper {
-    //Esta es la tuya marta
-    /*private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaEntry.TABLE_NAME +
-            "(" + IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            IncidenciaEntry.TABLE_NAME_TITLE + " TEXT)";
-    */
-
-    //LINEA DE ABAJO ES LA MIA:le he añadido IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT
-
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaEntry.TABLE_NAME +
             "(" + IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            IncidenciaEntry.TABLE_NAME_TITLE+"TEXT,"+
-            IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT"+")";
+            IncidenciaEntry.TABLE_NAME_TITLE+" TEXT,"+
+            IncidenciaEntry.TABLE_NAME_PRIORITY+" TEXT"
+
+            +")";
 
 
     public IncidenciaBDHelper(@Nullable Context context) {
@@ -52,8 +46,8 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         if(db.isOpen()){
             ContentValues contenido=new ContentValues();
             contenido.put(IncidenciaEntry.TABLE_NAME_TITLE,miincidencia.getContenido());
-            //Linea de abajo añadida
             contenido.put(IncidenciaEntry.TABLE_NAME_PRIORITY,miincidencia.getNivel_peligro());
+
             try {
                 db.insert(IncidenciaEntry.TABLE_NAME,null,contenido);
             }catch (SQLException e){
@@ -70,14 +64,14 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         //Selection all registers from the table Incidencia using Cursor
         Cursor cursor = db.rawQuery("select * from "+IncidenciaEntry.TABLE_NAME,null);
 
-        if(cursor!=null){
-            cursor.moveToFirst();
+        if(cursor.getCount()>0){
+            //cursor.moveToFirst();
             while (cursor.moveToNext()) {
-                String inc = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_TITLE));
-                String inc2 = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_PRIORITY));
-                Incidencia incidencia = new Incidencia(inc,inc2);
+                //String inc = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_TITLE));
+                //String inc2 = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_PRIORITY));
+                Incidencia incidencia = new Incidencia(cursor.getString(1),cursor.getString(2));
                 listIncidencies.add(incidencia);
-                //hello
+
             }
         }
 

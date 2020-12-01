@@ -4,6 +4,7 @@ public class Incidencia {
     public String contenido;
     public String nivel_peligro;
 
+
     public Incidencia(String contenido,String nivel_peligro) {
         this.contenido = contenido;
         this.nivel_peligro=nivel_peligro;
