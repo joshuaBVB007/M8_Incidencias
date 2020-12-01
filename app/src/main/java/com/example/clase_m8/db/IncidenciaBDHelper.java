@@ -77,6 +77,7 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
                 String inc2 = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_PRIORITY));
                 Incidencia incidencia = new Incidencia(inc,inc2);
                 listIncidencies.add(incidencia);
+                //hello
             }
         }
 
