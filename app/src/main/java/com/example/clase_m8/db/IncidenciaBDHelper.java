@@ -26,7 +26,8 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + IncidenciaEntry.TABLE_NAME +
             "(" + IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            IncidenciaEntry.TABLE_NAME_TITLE+"TEXT,"+IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT)";
+            IncidenciaEntry.TABLE_NAME_TITLE+"TEXT,"+
+            IncidenciaEntry.TABLE_NAME_PRIORITY+"TEXT"+")";
 
 
     public IncidenciaBDHelper(@Nullable Context context) {
