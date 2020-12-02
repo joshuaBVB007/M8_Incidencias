@@ -11,7 +11,7 @@ public class Incidencia {
     public long fecha;
 
 
-    public Incidencia(String contenido,String prioridad,String desc) {
+    public Incidencia(String contenido, String prioridad,String desc) {
         this.contenido = contenido;
         this.prioridad =prioridad;
         this.desc=desc;
@@ -49,10 +49,11 @@ public class Incidencia {
         this.fecha = fecha;
     }
 
-    public String dimeFecha(){
-        Date actual_hora=new java.util.Date(this.fecha*1000);
-        String hora=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(actual_hora);
-        return hora;
+    public String dimeFecha(){//ESTE METODO LO USAMOS EN EL RECYCLER_ADAPTER
+        Date actual_hora=new java.util.Date();
+        SimpleDateFormat hora=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String hora_definitiva=hora.format(actual_hora);
+        return hora_definitiva;
     }
 
 

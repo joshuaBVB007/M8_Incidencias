@@ -47,7 +47,7 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
             ContentValues contenido=new ContentValues();
             contenido.put(IncidenciaEntry.TABLE_NAME_TITLE,miincidencia.getContenido());
             contenido.put(IncidenciaEntry.TABLE_NAME_PRIORITY,miincidencia.getPrioridad());
-            contenido.put(IncidenciaEntry.TABLE_NAME_DATE,miincidencia.dimeFecha());
+            contenido.put(IncidenciaEntry.TABLE_NAME_DATE,miincidencia.getFecha());
             contenido.put(IncidenciaEntry.TABLE_NAME_DESCRIPTION,miincidencia.getDesc());
             try {
                 db.insert(IncidenciaEntry.TABLE_NAME,null,contenido);
@@ -66,12 +66,12 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from "+IncidenciaEntry.TABLE_NAME,null);
 
         if(cursor.getCount()>0){
-            //cursor.moveToFirst();
+            cursor.moveToFirst();
             while (cursor.moveToNext()) {
-                //String inc = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_TITLE));
-                //String inc2 = cursor.getString(cursor.getColumnIndex(IncidenciaEntry.TABLE_NAME_PRIORITY));
-                //Incidencia incidencia = new Incidencia(cursor.getString(1),cursor.getString(2,cursor.getString(3),cursor.getString(4)));
-                //listIncidencies.add(incidencia);
+
+                Incidencia incidencia = new Incidencia(cursor.getString(1),cursor.getString(2),cursor.getString(4));
+                incidencia.setFecha(cursor.getLong(3));
+                listIncidencies.add(incidencia);
 
             }
         }
