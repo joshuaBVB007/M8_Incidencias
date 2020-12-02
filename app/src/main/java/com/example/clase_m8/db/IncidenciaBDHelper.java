@@ -72,6 +72,7 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
                 Incidencia incidencia = new Incidencia(cursor.getString(1),cursor.getString(2),cursor.getString(4));
                 incidencia.setFecha(cursor.getLong(3));
                 listIncidencies.add(incidencia);
+                //
 
             }
         }
