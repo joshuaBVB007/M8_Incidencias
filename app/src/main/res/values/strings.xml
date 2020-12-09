@@ -18,8 +18,11 @@
     <!--Action Bar-->
     <string name="ingles">Inglés</string>
     <string name="espanol">Español</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="altas">Altas</string>
+    <string name="medias">Medias</string>
+    <string name="bajas">Bajas</string>
+
+
 
 
 </resources>

@@ -19,4 +19,7 @@
     <!--Action Bar-->
     <string name="ingles">English</string>
     <string name="espanol">Spanish</string>
+    <string name="altas">Altas</string>
+    <string name="medias">Medias</string>
+    <string name="bajas">Bajas</string>
 </resources>

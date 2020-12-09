@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Spinner
+            android:id="@+id/spinner_2"
+            android:layout_width="103dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_ingreso" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="284dp"
@@ -18,5 +29,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Buscar"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintStart_toEndOf="@+id/spinner_2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

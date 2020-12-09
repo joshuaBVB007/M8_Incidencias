@@ -59,10 +59,18 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         }
     }
 
-    public static ArrayList<Incidencia> getAllIncidencies(SQLiteDatabase db){
+    public static ArrayList<Incidencia> getAllIncidencies(SQLiteDatabase db,String filter){
         ArrayList<Incidencia> listIncidencies = new ArrayList<Incidencia>();
-        //Selection all registers from the table Incidencia using Cursor
         Cursor cursor = db.rawQuery("select * from "+IncidenciaEntry.TABLE_NAME,null);
+
+        if (filter == "Alta") {
+            cursor = db.rawQuery("SELECT * FROM " + IncidenciaEntry.TABLE_NAME + " WHERE " + IncidenciaEntry.TABLE_NAME_STATE + " = " + "2", null);
+        }else if(filter=="Media"){
+            cursor = db.rawQuery("SELECT * FROM " + IncidenciaEntry.TABLE_NAME + " WHERE " + IncidenciaEntry.TABLE_NAME_STATE + " = " + "1", null);
+        }else if(filter=="Baja"){
+            cursor = db.rawQuery("SELECT * FROM " + IncidenciaEntry.TABLE_NAME + " WHERE " + IncidenciaEntry.TABLE_NAME_STATE + " = " + "0", null);
+        }
+
         if( cursor.getCount()>0){
             //ID,TITULO.PRIORIDAD,FECHA,DESCRIPCION,ESTADO
             while (cursor.moveToNext()) {
@@ -72,9 +80,7 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
                 incidencia.setId(cursor.getInt(0));
                 listIncidencies.add(incidencia);
             }
-
         }
-
         cursor.close();
         return listIncidencies;
     }
@@ -100,8 +106,5 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
                 selectionArgs);
         Log.i("actualizacion","update correct");
     }
-
-
-
 
 }

@@ -60,6 +60,7 @@ public class IngresoIncidencia extends Fragment {
                 miincidencia.setEstado(0);
 
                 IncidenciaBDHelper dbhelper=((Menu_principal)getActivity()).dbhelper;
+
                 SQLiteDatabase db=((Menu_principal)getActivity()).db;
 
                 dbhelper.insertIncidencia(db,miincidencia);

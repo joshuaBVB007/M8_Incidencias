@@ -37,11 +37,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         if(lista!=null){
-
-            /*
-            Hipotesis 1 que los indices del arraylist no sean los mismos del recycler.
-
-            * */
             String statusText = "";
             int color = 0;
             int textColor = 0;

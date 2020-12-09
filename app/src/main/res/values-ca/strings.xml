@@ -18,4 +18,7 @@
     <!--Action Bar-->
     <string name="ingles">Àngles</string>
     <string name="espanol">Espanyol</string>
+    <string name="altas">Altas</string>
+    <string name="medias">Medias</string>
+    <string name="bajas">Bajas</string>
 </resources>
