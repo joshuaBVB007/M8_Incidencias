@@ -12,11 +12,12 @@
 
         <Spinner
             android:id="@+id/spinner_2"
-            android:layout_width="103dp"
-            android:layout_height="62dp"
+            android:layout_width="159dp"
+            android:layout_height="49dp"
             android:layout_marginStart="64dp"
             android:layout_marginLeft="64dp"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/recycler_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ed_ingreso" />
@@ -34,11 +35,11 @@
             android:id="@+id/buscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="8dp"
             android:text="Buscar"
             app:layout_constraintBottom_toTopOf="@+id/recycler_view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toEndOf="@+id/spinner_2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

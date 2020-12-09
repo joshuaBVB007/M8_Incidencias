@@ -18,6 +18,7 @@ public class Incidencia {
     public int estado;
     public int id;
     public static int idsiguiente=1;
+    public String detalle;
 
     /*
     1-pueda que el idsiguiente sea el problema
@@ -95,6 +96,15 @@ public class Incidencia {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+
+    public String getDetalle() {
+        return "Detalles";
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
 

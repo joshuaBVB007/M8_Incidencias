@@ -65,9 +65,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.fecha_Incidencia.setText(lista.get(position).dimeFecha());
         holder.descripcion_Incidencia.setText(lista.get(position).getDesc());
         holder.id.setText(lista.get(position).getId());
+        holder.Detalle.setText(lista.get(position).getDetalle());
         
         final int id=position;
-        holder.titulo_Incidencia.setOnClickListener(new View.OnClickListener() {
+        holder.Detalle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity)v.getContext();
@@ -101,6 +102,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView descripcion_Incidencia;
         TextView estado_Incidencia;
         TextView id;
+        TextView Detalle;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -110,6 +112,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            descripcion_Incidencia =itemView.findViewById(R.id.descripcion);
            estado_Incidencia=itemView.findViewById(R.id.estado);
            id=itemView.findViewById(R.id.id);
+           Detalle=itemView.findViewById(R.id.detalle);
         }
     }
 
