@@ -107,4 +107,9 @@ public class IncidenciaBDHelper extends SQLiteOpenHelper {
         Log.i("actualizacion","update correct");
     }
 
+    public static void Eliminar_Incidencia_ID(SQLiteDatabase db, int position) {
+        String deleteCall = "DELETE FROM " + IncidenciaEntry.TABLE_NAME + " WHERE " + IncidenciaEntry.ID + " = " + position;
+        db.execSQL(deleteCall);
+    }
+
 }

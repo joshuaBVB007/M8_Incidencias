@@ -20,7 +20,6 @@ public class Botones_menu extends Fragment {
     Button B1;
     Button B2;
     Button B3;
-    Button B4;
 
     public Botones_menu() {
         // Required empty public constructor
@@ -36,7 +35,6 @@ public class Botones_menu extends Fragment {
         B1=(Button)V.findViewById(R.id.b1);
         B2=(Button)V.findViewById(R.id.b2);
         B3=(Button)V.findViewById(R.id.b3);
-        B4=(Button)V.findViewById(R.id.b4);
 
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,16 +69,6 @@ public class Botones_menu extends Fragment {
             }
         });
 
-        B4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment vista= new ListarIncidencias();
-                FragmentManager mimanejador=getFragmentManager();
-                FragmentTransaction mitransaccion=mimanejador.beginTransaction();
-                mitransaccion.replace(R.id.contenedor,vista);
-                mitransaccion.commit();
-            }
-        });
 
 
         return V;

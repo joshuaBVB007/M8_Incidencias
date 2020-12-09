@@ -102,7 +102,7 @@ public class Incidencia {
     public String getDetalle() {
         return "Detalles";
     }
-        //
+
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }

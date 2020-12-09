@@ -1,6 +1,8 @@
 package com.example.clase_m8;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -53,6 +55,7 @@ public class Vista_Enfocada extends Fragment {
         TextView descripcion_1=V.findViewById(R.id.tx_descripcion);
         TextView fecha_1=V.findViewById(R.id.tx_fecha);
         final Button estado_1=V.findViewById(R.id.im_estado);
+        final Button del_Incidencia=V.findViewById(R.id.del);
 
         titulo_1.setText(titulo);
         prioridad_1.setText(prioridad);
@@ -85,6 +88,16 @@ public class Vista_Enfocada extends Fragment {
                     }
                 }
             });
+
+        del_Incidencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrardialogo();
+            }
+        });
+
+
+
         return V;
     }
 
@@ -105,4 +118,25 @@ public class Vista_Enfocada extends Fragment {
             return cambio;
         }
     }
+
+    public void mostrardialogo(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        builder.setTitle("Warning!");
+        builder.setMessage("Erase event?")
+                .setPositiveButton("si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        IncidenciaBDHelper.Eliminar_Incidencia_ID(db,id_usuario);
+                        Toast.makeText(getContext(),"Event successfully erased",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
+    }
+
+
 }
